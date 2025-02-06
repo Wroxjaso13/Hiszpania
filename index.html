@@ -1,149 +1,160 @@
-!DOCTYPE html
-html lang=en
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    titleApartment Rentaltitle
-    link rel=stylesheet href=styles.css
-    script defer src=script.jsscript
-    style
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Rental</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
         body {
-            font-family Arial, sans-serif;
-            background-color #ffffff;
-            color #333;
-            margin 0;
-            padding 0;
-            display flex;
-            flex-direction column;
-            align-items center;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
-            width 100%;
-            background #f8f9fa;
-            padding 20px;
-            text-align center;
-            box-shadow 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
         h1, h2 {
-            font-weight normal;
+            font-weight: normal;
         }
         nav {
-            margin-top 10px;
+            margin-top: 10px;
         }
         button {
-            background none;
-            border 1px solid #333;
-            padding 8px 16px;
-            cursor pointer;
-            margin 5px;
-            transition background 0.3s ease;
+            background: none;
+            border: 1px solid #333;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s ease;
         }
-        buttonhover {
-            background #333;
-            color #fff;
+        button:hover {
+            background: #333;
+            color: #fff;
         }
         section {
-            width 90%;
-            max-width 800px;
-            padding 20px;
-            text-align center;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 80px;
         }
         #calendar-container {
-            border 1px solid #ddd;
-            padding 20px;
-            border-radius 5px;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background: #f9f9f9;
         }
         form {
-            display flex;
-            flex-direction column;
-            align-items center;
-            gap 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         input, textarea {
-            width 100%;
-            max-width 400px;
-            padding 8px;
-            border 1px solid #ddd;
-            border-radius 4px;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
-        button[type=submit] {
-            background #333;
-            color white;
+        button[type="submit"] {
+            background: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        button[type=submit]hover {
-            background #555;
+        button[type="submit"]:hover {
+            background: #555;
         }
-    style
-head
-body
-    header
-        h1 id=titleWelcome to Our Apartmenth1
-        nav
-            button onclick=changeLanguage('en')Englishbutton
-            button onclick=changeLanguage('es')Españolbutton
-        nav
-    header
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="title">Welcome to Our Apartment</h1>
+        <nav>
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('es')">Español</button>
+        </nav>
+    </header>
     
-    section id=about
-        h2 id=about-titleAbout the Apartmenth2
-        p id=about-descriptionEnjoy a luxurious stay with stunning views and modern amenities.p
-    section
+    <section id="about">
+        <h2 id="about-title">About the Apartment</h2>
+        <p id="about-description">Enjoy a luxurious stay with stunning views and modern amenities.</p>
+    </section>
     
-    section id=calendar
-        h2 id=calendar-titleAvailability Calendarh2
-        div id=calendar-container[Calendar Placeholder]div
-    section
+    <section id="calendar">
+        <h2 id="calendar-title">Availability Calendar</h2>
+        <div id="calendar-container">[Calendar Placeholder]</div>
+    </section>
     
-    section id=contact
-        h2 id=contact-titleContact Ush2
-        form id=contact-form
-            label for=name id=label-nameNamelabel
-            input type=text id=name required
-            label for=email id=label-emailEmaillabel
-            input type=email id=email required
-            label for=message id=label-messageMessagelabel
-            textarea id=message requiredtextarea
-            button type=submit id=submit-buttonSendbutton
-        form
-    section
+    <section id="contact">
+        <h2 id="contact-title">Contact Us</h2>
+        <form id="contact-form">
+            <label for="name" id="label-name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="email" id="label-email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="message" id="label-message">Message:</label>
+            <textarea id="message" required></textarea>
+            <button type="submit" id="submit-button">Send</button>
+        </form>
+    </section>
     
-    script
+    <script>
         const translations = {
-            en {
-                title Welcome to Our Apartment,
-                about-title About the Apartment,
-                about-description Enjoy a luxurious stay with stunning views and modern amenities.,
-                calendar-title Availability Calendar,
-                contact-title Contact Us,
-                label-name Name,
-                label-email Email,
-                label-message Message,
-                submit-button Send
+            en: {
+                title: "Welcome to Our Apartment",
+                "about-title": "About the Apartment",
+                "about-description": "Enjoy a luxurious stay with stunning views and modern amenities.",
+                "calendar-title": "Availability Calendar",
+                "contact-title": "Contact Us",
+                "label-name": "Name:",
+                "label-email": "Email:",
+                "label-message": "Message:",
+                "submit-button": "Send"
             },
-            es {
-                title Bienvenido a Nuestro Apartamento,
-                about-title Sobre el Apartamento,
-                about-description Disfruta de una estancia de lujo con vistas impresionantes y comodidades modernas.,
-                calendar-title Calendario de Disponibilidad,
-                contact-title Contáctanos,
-                label-name Nombre,
-                label-email Correo Electrónico,
-                label-message Mensaje,
-                submit-button Enviar
+            es: {
+                title: "Bienvenido a Nuestro Apartamento",
+                "about-title": "Sobre el Apartamento",
+                "about-description": "Disfruta de una estancia de lujo con vistas impresionantes y comodidades modernas.",
+                "calendar-title": "Calendario de Disponibilidad",
+                "contact-title": "Contáctanos",
+                "label-name": "Nombre:",
+                "label-email": "Correo Electrónico:",
+                "label-message": "Mensaje:",
+                "submit-button": "Enviar"
             }
         };
 
         function changeLanguage(lang) {
-            document.getElementById(title).textContent = translations[lang].title;
-            document.getElementById(about-title).textContent = translations[lang][about-title];
-            document.getElementById(about-description).textContent = translations[lang][about-description];
-            document.getElementById(calendar-title).textContent = translations[lang][calendar-title];
-            document.getElementById(contact-title).textContent = translations[lang][contact-title];
-            document.getElementById(label-name).textContent = translations[lang][label-name];
-            document.getElementById(label-email).textContent = translations[lang][label-email];
-            document.getElementById(label-message).textContent = translations[lang][label-message];
-            document.getElementById(submit-button).textContent = translations[lang][submit-button];
+            document.getElementById("title").textContent = translations[lang].title;
+            document.getElementById("about-title").textContent = translations[lang]["about-title"];
+            document.getElementById("about-description").textContent = translations[lang]["about-description"];
+            document.getElementById("calendar-title").textContent = translations[lang]["calendar-title"];
+            document.getElementById("contact-title").textContent = translations[lang]["contact-title"];
+            document.getElementById("label-name").textContent = translations[lang]["label-name"];
+            document.getElementById("label-email").textContent = translations[lang]["label-email"];
+            document.getElementById("label-message").textContent = translations[lang]["label-message"];
+            document.getElementById("submit-button").textContent = translations[lang]["submit-button"];
         }
-    script
-body
-html
+    </script>
+</body>
+</html>
