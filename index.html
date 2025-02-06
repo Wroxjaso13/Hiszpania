@@ -7,80 +7,74 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #f5f5f5;
             color: #333;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         header {
             width: 100%;
-            background: #f8f9fa;
+            background: #2C3E50;
+            color: white;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
         }
-        h1, h2 {
-            font-weight: normal;
-        }
         nav {
             margin-top: 10px;
         }
         button {
             background: none;
-            border: 1px solid #333;
+            border: 1px solid white;
             padding: 8px 16px;
             cursor: pointer;
             margin: 5px;
+            color: white;
             transition: background 0.3s ease;
         }
         button:hover {
-            background: #333;
-            color: #fff;
+            background: white;
+            color: #2C3E50;
         }
-        section {
-            width: 90%;
-            max-width: 800px;
-            padding: 20px;
-            text-align: center;
+        .hero {
+            width: 100%;
+            height: 400px;
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
             margin-top: 80px;
         }
-        #calendar-container {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 5px;
-            background: #f9f9f9;
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 0;
+            text-align: center;
         }
-        form {
+        .gallery {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
         }
-        input, textarea {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .gallery img {
+            width: 30%;
+            border-radius: 5px;
         }
-        button[type="submit"] {
-            background: #333;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button[type="submit"]:hover {
-            background: #555;
+        .contact-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -93,27 +87,37 @@
         </nav>
     </header>
     
-    <section id="about">
+    <section class="hero">
+        Stunning Beachfront Apartment
+    </section>
+    
+    <section class="container">
         <h2 id="about-title">About the Apartment</h2>
         <p id="about-description">Enjoy a luxurious stay with stunning views and modern amenities.</p>
     </section>
     
-    <section id="calendar">
-        <h2 id="calendar-title">Availability Calendar</h2>
-        <div id="calendar-container">[Calendar Placeholder]</div>
+    <section class="container">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="img1.jpg" alt="Apartment Image 1">
+            <img src="img2.jpg" alt="Apartment Image 2">
+            <img src="img3.jpg" alt="Apartment Image 3">
+        </div>
     </section>
     
-    <section id="contact">
+    <section class="container">
         <h2 id="contact-title">Contact Us</h2>
-        <form id="contact-form">
-            <label for="name" id="label-name">Name:</label>
-            <input type="text" id="name" required>
-            <label for="email" id="label-email">Email:</label>
-            <input type="email" id="email" required>
-            <label for="message" id="label-message">Message:</label>
-            <textarea id="message" required></textarea>
-            <button type="submit" id="submit-button">Send</button>
-        </form>
+        <div class="contact-form">
+            <form id="contact-form">
+                <label for="name" id="label-name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email" id="label-email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="message" id="label-message">Message:</label>
+                <textarea id="message" required></textarea>
+                <button type="submit" id="submit-button">Send</button>
+            </form>
+        </div>
     </section>
     
     <script>
@@ -122,7 +126,6 @@
                 title: "Welcome to Our Apartment",
                 "about-title": "About the Apartment",
                 "about-description": "Enjoy a luxurious stay with stunning views and modern amenities.",
-                "calendar-title": "Availability Calendar",
                 "contact-title": "Contact Us",
                 "label-name": "Name:",
                 "label-email": "Email:",
@@ -133,7 +136,6 @@
                 title: "Bienvenido a Nuestro Apartamento",
                 "about-title": "Sobre el Apartamento",
                 "about-description": "Disfruta de una estancia de lujo con vistas impresionantes y comodidades modernas.",
-                "calendar-title": "Calendario de Disponibilidad",
                 "contact-title": "Contáctanos",
                 "label-name": "Nombre:",
                 "label-email": "Correo Electrónico:",
@@ -146,7 +148,6 @@
             document.getElementById("title").textContent = translations[lang].title;
             document.getElementById("about-title").textContent = translations[lang]["about-title"];
             document.getElementById("about-description").textContent = translations[lang]["about-description"];
-            document.getElementById("calendar-title").textContent = translations[lang]["calendar-title"];
             document.getElementById("contact-title").textContent = translations[lang]["contact-title"];
             document.getElementById("label-name").textContent = translations[lang]["label-name"];
             document.getElementById("label-email").textContent = translations[lang]["label-email"];
