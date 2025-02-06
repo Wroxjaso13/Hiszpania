@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apartment Rental</title>
+    <title>Apartment Rental in Torrevieja</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +43,7 @@
         .hero {
             width: 100%;
             height: 400px;
-            background: url('hero-image.jpg') no-repeat center center/cover;
+            background: url('images/morze.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,11 +76,29 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .pricing-table {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .pricing-table th, .pricing-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .pricing-table th {
+            background: #2C3E50;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1 id="title">Welcome to Our Apartment</h1>
+        <h1>Welcome to Your Stay in Torrevieja</h1>
         <nav>
             <button onclick="changeLanguage('en')">English</button>
             <button onclick="changeLanguage('es')">Español</button>
@@ -88,72 +106,68 @@
     </header>
     
     <section class="hero">
-        Stunning Beachfront Apartment
+        Beautiful Beachside Apartment for Rent
     </section>
     
     <section class="container">
-        <h2 id="about-title">About the Apartment</h2>
-        <p id="about-description">Enjoy a luxurious stay with stunning views and modern amenities.</p>
+        <h2>About the Apartment</h2>
+        <p>Located on the first floor, this 46m² apartment is ideal for a couple or a family of four. It features a spacious living room with a fully equipped kitchen, a cozy bedroom with a double bed, a modern bathroom, and a hallway. The living room sofa converts into a bed for two additional guests.</p>
+        <p>Enjoy a large **21m² terrace** overlooking a private community pool, accessible only to residents. The apartment is directly across from **De Las Naciones Park**, offering a large playground for children.</p>
+        <p>Conveniently located, it's just a **15-minute walk to Playa de Acequion Beach** and within close proximity to local shops and restaurants.</p>
     </section>
     
     <section class="container">
         <h2>Gallery</h2>
         <div class="gallery">
-            <img src="img1.jpg" alt="Apartment Image 1">
-            <img src="img2.jpg" alt="Apartment Image 2">
-            <img src="img3.jpg" alt="Apartment Image 3">
+            <img src="images/salon1.jpg" alt="Living Room">
+            <img src="images/salon2.jpg" alt="Living Room Angle 2">
+            <img src="images/sypialnia2.jpg" alt="Bedroom">
+            <img src="images/taras.jpg" alt="Terrace">
+            <img src="images/basen.jpg" alt="Pool View">
+            <img src="images/Widok_z_dachu.jpg" alt="Panoramic View">
         </div>
     </section>
     
     <section class="container">
-        <h2 id="contact-title">Contact Us</h2>
+        <h2>Pricing</h2>
+        <table class="pricing-table">
+            <tr>
+                <th>Season</th>
+                <th>Months</th>
+                <th>Price per week</th>
+            </tr>
+            <tr>
+                <td>Season 1</td>
+                <td>May - September</td>
+                <td>400 EUR</td>
+            </tr>
+            <tr>
+                <td>Season 2</td>
+                <td>January - April, October - December</td>
+                <td>300 EUR</td>
+            </tr>
+        </table>
+    </section>
+    
+    <section class="container">
+        <h2>Why Choose Torrevieja?</h2>
+        <p>Torrevieja is known for its stunning weather all year round, making it an excellent holiday destination. It is just **a short drive from Alicante Airport**, making travel easy and convenient.</p>
+        <p>The city boasts beautiful sandy beaches, vibrant nightlife, and plenty of activities such as shopping, golf, and nature parks.</p>
+    </section>
+    
+    <section class="container">
+        <h2>Contact Us</h2>
         <div class="contact-form">
-            <form id="contact-form">
-                <label for="name" id="label-name">Name:</label>
+            <form>
+                <label for="name">Name:</label>
                 <input type="text" id="name" required>
-                <label for="email" id="label-email">Email:</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" required>
-                <label for="message" id="label-message">Message:</label>
+                <label for="message">Message:</label>
                 <textarea id="message" required></textarea>
-                <button type="submit" id="submit-button">Send</button>
+                <button type="submit">Send</button>
             </form>
         </div>
     </section>
-    
-    <script>
-        const translations = {
-            en: {
-                title: "Welcome to Our Apartment",
-                "about-title": "About the Apartment",
-                "about-description": "Enjoy a luxurious stay with stunning views and modern amenities.",
-                "contact-title": "Contact Us",
-                "label-name": "Name:",
-                "label-email": "Email:",
-                "label-message": "Message:",
-                "submit-button": "Send"
-            },
-            es: {
-                title: "Bienvenido a Nuestro Apartamento",
-                "about-title": "Sobre el Apartamento",
-                "about-description": "Disfruta de una estancia de lujo con vistas impresionantes y comodidades modernas.",
-                "contact-title": "Contáctanos",
-                "label-name": "Nombre:",
-                "label-email": "Correo Electrónico:",
-                "label-message": "Mensaje:",
-                "submit-button": "Enviar"
-            }
-        };
-
-        function changeLanguage(lang) {
-            document.getElementById("title").textContent = translations[lang].title;
-            document.getElementById("about-title").textContent = translations[lang]["about-title"];
-            document.getElementById("about-description").textContent = translations[lang]["about-description"];
-            document.getElementById("contact-title").textContent = translations[lang]["contact-title"];
-            document.getElementById("label-name").textContent = translations[lang]["label-name"];
-            document.getElementById("label-email").textContent = translations[lang]["label-email"];
-            document.getElementById("label-message").textContent = translations[lang]["label-message"];
-            document.getElementById("submit-button").textContent = translations[lang]["submit-button"];
-        }
-    </script>
 </body>
 </html>
